@@ -26,6 +26,6 @@ runs:
       if: steps.cache.outputs.cache-hit != 'true' || inputs.guarda_cache!='true'
       run: |
         npm ci
-        echo ":: set-output name= valor_regreso_cache:: '${{inputs.guarda_cache}}'"
+        echo "valor_regreso_cache= '${{inputs.guarda_cache}}'">> $GITHUB_OUTPUT
       shell: bash
   
