@@ -10,10 +10,13 @@ jobs:
       - name: Get code
         uses: actions/checkout@v3
       - name: load cache desde accion personalizada
+        id: cache_deps
         uses: ./.github/actions/cached-deps
         with:
           guarda_cache: 'false'
-          
+      - name: salida informatcion
+        run: "esta utilizando cache ${{steps.cache_deps.outputs.mi_cache}}"
+      
       - name: Lint code
         run: npm run lint
   test:
