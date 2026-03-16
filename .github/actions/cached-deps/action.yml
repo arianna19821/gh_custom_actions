@@ -5,6 +5,10 @@ inputs:
     description: 'valor para estrablecer las dependencias'
     required: false
     default: true
+outputs:
+  mi_cache:
+    description: 'valor para describir si se uso la cache'
+    value: ${{steps.instalacion.outputs.valor_regreso_cache}}
 
 runs:
   using: 'composite'
@@ -18,7 +22,10 @@ runs:
         key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
 
     - name: Install dependencies
+      id: instalacion
       if: steps.cache.outputs.cache-hit != 'true' || inputs.guarda_cache!='true'
-      run: npm ci
+      run: |
+        npm ci
+        echo ":: set-output name= valor_regreso_cache:: '${{inputs.guarda_cache}}'"
       shell: bash
   
