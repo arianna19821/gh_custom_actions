@@ -15,7 +15,7 @@ jobs:
         with:
           guarda_cache: 'false'
       - name: salida informatcion
-        run: "esta utilizando cache ${{steps.cache_deps.outputs.mi_cache}}"
+        run:  echo "esta utilizando cache ${{steps.cache_deps.outputs.mi_cache}}"
       
       - name: Lint code
         run: npm run lint
