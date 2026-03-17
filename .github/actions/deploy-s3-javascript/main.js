@@ -5,6 +5,6 @@ const exec= require ('@actions/exec');
 
 
 function run(){
-  core.notice ("hola acciones personalizadas via javascrip");
+  core.notice ('hola acciones personalizadas via javascrip');
 }
 run();
