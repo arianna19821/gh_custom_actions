@@ -1,5 +1,16 @@
 name: 'deploy to aws s3'
 description: 'deploy static webiste via aws'
+inputs:
+  bucket:
+    description: 'bucket name'
+    required: true
+  region:
+    description: 'la region del cubo'
+    required: false
+    default: 'us-east-1'
+  dist-folder:
+    description: 'carpeta a despliegar'
+    required: true
 runs:
   using: 'node24'
   main: 'main.js'
