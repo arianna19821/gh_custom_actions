@@ -12,5 +12,7 @@ function run(){
   exec.exec(`aws s3 sync ${distFolder} ${s3Uri} --region ${bucketRegion}`);
   
   core.notice ('hola acciones personalizadas via javascrip');
+  const websiteUrl=`http://${bucket}.s3-website-${bucketRegion}.amazonaws.com`;
+  core.setOutput('website-url',websiteUrl);
 }
 run();
