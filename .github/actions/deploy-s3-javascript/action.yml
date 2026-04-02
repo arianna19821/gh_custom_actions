@@ -11,8 +11,8 @@ inputs:
   dist-folder:
     description: 'carpeta a despliegar'
     required: true
-  outputs:
-    website-url: 
+outputs:
+  website-url:
     description: 'la url creada'
 runs:
   using: 'node24'
